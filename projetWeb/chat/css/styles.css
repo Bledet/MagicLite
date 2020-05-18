@@ -1,0 +1,300 @@
+body {
+    background-color: #483D8B;
+}
+
+div {
+    width: 100%;
+    height: 100%;
+}
+
+div.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 97vh;
+    border-width:2px;
+    border-style:dotted;
+    border-color:black;
+}
+
+div.battlefieldop{
+    display: flex;
+    flex-direction: column;
+    min-height: 49vh;
+    border-width:2px;
+    border-style:dotted;
+    border-color:yellow;
+}
+
+div.battlefield{
+    display:flex;
+    flex-direction: column-reverse;
+    min-height: 49vh;
+    border-width:2px;
+    border-style:dotted;
+    border-color:greenyellow;
+}
+
+h1.titre {
+    font-size: 100px;
+}
+
+h3.slogan {
+    font-size: 45px;
+}
+
+/*-----------------------Avant-Board Adversaire (opponent)--------------------------*/
+div.avboardop{
+    display: flex;
+    z-index: 10!important;
+    position:relative;
+    justify-content: center;
+    border-width:2px;
+    border-style:dotted;
+    border-color:blue;
+    width: 100%;
+}
+div.apboardop{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    position:relative;
+    z-index: 4;
+    align-items: center;
+    perspective: 1000px;
+    border-width:2px;
+    border-style:dotted;
+    border-color:deepskyblue;
+}
+
+/*Enchant, Artos, planeswalker */
+div.eapop{
+    width: 10%;
+}
+div.eaptopop, div.peop{
+    display: flex;
+    position:relative;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+div.eapdownop, div.cop{
+    display: flex;
+    position:relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/*Mana et main*/
+div.manahandop{
+    width: 80%;
+}
+div.handop {
+    display: flex;
+    position:relative;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+div.manaop {
+    display: flex;
+    position:relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+/*Pioche, Exile, Cimetiere*/
+div.pecop{
+    width: 10%;
+}
+
+/*-----------------------Avant-Board Joueur (Utilisateur)--------------------------*/
+div.avboard{
+    display: flex;
+    justify-content: center;
+    border-width:2px;
+    border-style:dotted;
+    border-color:crimson;
+    width: 100%;
+}
+div.apboard{
+    display: flex;
+    justify-content: center;
+    position:relative;
+    z-index: 2;
+    width: 100%;
+    border-width:2px;
+    border-style:dotted;
+    border-color:darkred;
+}
+/*Enchant, Artos, planeswalker */
+div.eap{
+    width: 10%;
+}
+div.eaptop, div.c{
+    display: flex;
+    position:relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+div.eapdown, div.pe{
+    display: flex;
+    position:relative;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/*Mana et main*/
+div.manahand{
+    width: 80%;
+    margin-bottom: 1px;
+}
+
+div.mana {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    z-index: 3;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+div.hand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    z-index: 4;
+    width: 100%;
+    height: 100%;
+    perspective: 1000px;
+}
+
+/*Pioche, Exile, Cimetiere*/
+div.pec{
+    width: 10%;
+}
+
+div.card {
+    transition: 1s;
+    width: 50px;
+    height: 70px;
+    margin: 5px;
+    transform-style: preserve-3d;
+}
+
+.back {
+    position: absolute;
+    backface-visibility: hidden;
+    height: 300px;
+}
+
+button#btn {
+    font-size: 50px;
+    width: 100%;
+}
+
+.back {
+    background: url(https://img.scryfall.com/cards/normal/front/7/c/7cdb8b9d-2573-4162-9255-50a281dfb775.jpg?1562920162) no-repeat;
+    /*transform: scaleY(-1);*/
+    position:relative;
+    z-index: 1;
+    background-size: 50px;
+    width: 50px;
+    height: 70px;
+}
+
+.backbot {
+    background: url(https://img.scryfall.com/cards/normal/front/7/c/7cdb8b9d-2573-4162-9255-50a281dfb775.jpg?1562920162) no-repeat;
+    /*transform: scaleY(-1);*/
+    position:relative;
+    z-index: 1;
+    background-size: 50px;
+    width: 50px;
+    height: 70px;
+}
+
+.backEmpty {
+    background: url(..) no-repeat;
+    /*transform: scaleY(-1);*/
+    position:relative;
+    z-index: 1;
+    background-size: 50px;
+    width: 50px;
+    height: 70px;
+    border-width:1px;
+    border-style:solid;
+    border-radius: 5px;
+    border-color:black;
+}
+
+.backPioche {
+    background: url(../asset/back_card.png) no-repeat;
+    /*transform: scaleY(-1);*/
+    position:relative;
+    z-index: 1;
+    background-size: 50px;
+    width: 50px;
+    height: 70px;
+}
+
+.backPioche:hover {
+    transition: 0.3s;
+    box-shadow: 0px 0px 20px 3px #FBD22B;
+    position:relative;
+    z-index: 1;
+    background-size: 50px;
+    width: 50px;
+    height: 70px;
+}
+
+.backEmpty:hover {
+    transition: 0.3s;
+    box-shadow: 0px 0px 20px 3px #000;
+    position:relative;
+    z-index: 1;
+    background-size: 50px;
+    width: 50px;
+    height: 70px;
+}
+
+.backbot:hover{
+    transition: 0.3s;
+    box-shadow: 0px 0px 20px 3px #000;
+    border-radius: 12px;
+    background-size: 250px;
+    width: 250px;
+    height: 348px;
+    float:right;
+    position: relative;
+    z-index: 10!important;
+    text-align: center;
+    margin-top: -280px;
+}
+
+.back:hover {
+    transition: 0.3s;
+    box-shadow: 0px 0px 20px 3px #000;
+    border-radius: 12px;
+    background-size: 250px;
+    width: 250px;
+    height: 348px;
+    float:right;
+    position: relative;
+    z-index: 10!important;
+    text-align: center;
+}
