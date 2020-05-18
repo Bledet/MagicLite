@@ -209,7 +209,7 @@ button#btn {
 }
 
 .back {
-    background: url(https://img.scryfall.com/cards/normal/front/7/c/7cdb8b9d-2573-4162-9255-50a281dfb775.jpg?1562920162) no-repeat;
+    background: url(../asset/back_card.png) no-repeat;
     /*transform: scaleY(-1);*/
     position:relative;
     z-index: 1;
@@ -219,7 +219,7 @@ button#btn {
 }
 
 .backbot {
-    background: url(https://img.scryfall.com/cards/normal/front/7/c/7cdb8b9d-2573-4162-9255-50a281dfb775.jpg?1562920162) no-repeat;
+    background: url(../asset/back_card.png) no-repeat;
     /*transform: scaleY(-1);*/
     position:relative;
     z-index: 1;
@@ -298,3 +298,6 @@ button#btn {
     z-index: 10!important;
     text-align: center;
 }
+
+h1
+{ color: #FF0000; }

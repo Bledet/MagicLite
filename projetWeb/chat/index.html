@@ -1,32 +1,191 @@
 <!DOCTYPE html>
 <html>
+<!-- Tete de la page qui contient les métadonnées -->
 <head>
-    <meta charset="utf-8" />
-    <title>Super Chat temps réel !</title>
-    <style>
-        #zone_chat strong {
-            color: white;
-            background-color: black;
-            padding: 2px;
-        }
-    </style>
+    <title>Battlefield</title>
+    <!-- lier la page html avec la feuille de styles css -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/styles.css">
+
 </head>
-
+<!-- Corp de la page -->
 <body>
-<h1>Le super Chat temps réel !</h1>
+<div class="container">
+    <div class="battlefieldop">
+        <!-- Avant_board de l'adversaire -->
+        <div class="avboardop">
+            <!-- Enchant, Artos, Planeswalker -->
+            <div class="eapop">
+                <!-- top line -->
+                <div class = eaptopop>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="back" src="public/asset/back_card.png"></img>
+                    </div>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="back" src="public/asset/back_card.png"></img>
+                    </div>
+                </div>
+                <!-- down line -->
+                <div class = eapdownop>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="back" src="public/asset/back_card.png"></img>
+                    </div>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="back" src="public/asset/back_card.png"></img>
+                    </div>
+                </div>
+            </div>
+            <!-- Mana et main de l'adversaire -->
+            <div class="manahandop">
+                <!-- Main de l'adversaire -->
+                <div id="handop"class="handop">
 
-<form action="/" method="post" id="formulaire_chat">
-    <input type="text" name="message" id="message" placeholder="Votre message..." size="50" autofocus />
-    <input type="submit" id="envoi_message" value="Envoyer" />
-</form>
+                </div>
+                <!-- Mana de l'adversaire -->
+                <div class="manaop">
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="back" src="public/asset/back_card.png"></img>
+                    </div>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="back" src="public/asset/back_card.png"></img>
+                    </div>
+                </div>
+            </div>
+            <!-- Pioche, Exile, Cimetiere de l'adversaire -->
+            <div class="pecop">
+                <div class = peop>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <div class="backPioche"></div>
+                    </div>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <div class="backEmpty"></div>
+                    </div>
+                </div>
+                <div class = cop>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <div class="backEmpty"></div>
+                    </div>
 
-<section id="zone_chat">
+                </div>
+            </div>
+        </div>
+        <!-- Après_board de l'adversaire -->
+        <div class="apboardop">
+            <div class="card" onclick="flip(event)">
+                <div class="back"></div>
+            </div>
+            <div class="card" onclick="flip(event)">
+                <div class="back"></div>
+            </div>
+            <div class="card" onclick="flip(event)">
+                <div class="back"></div>
+            </div>
+        </div>
+    </div>
 
-</section>
+    <!-- --------------------------- Battlefield joueur ----------------------------------------  -->
+    <div class="battlefield">
+
+        <!-- Avant_board -->
+        <div class="avboard">
+            <!-- Pioche, Exile, Cimetiere -->
+            <div class="pec">
+
+                <div class = c>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <div class="backEmpty"></div>
+                    </div>
+                </div>
+                <div class = pe>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <div class="backEmpty"></div>
+                    </div>
+                    <div class="card" onclick="buttonClickGET()">
+                        <!-- image de la carte rouge -->
+                        <div class="backPioche"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- Mana et main -->
+            <div class="manahand">
+                <!-- Mana -->
+                <div class="mana">
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="backbot" src="public/asset/back_card.png"></img>
+                    </div>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="backbot" src="public/asset/back_card.png"></img>
+                    </div>
+                </div>
+                <!-- Main -->
+                <div id="hand" class="hand">
+
+                </div>
+            </div>
+            <!-- Enchant, Artos, Planeswalker -->
+            <div class="eap">
+                <!-- top line -->
+                <div class = eaptop>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="backbot" src="public/asset/back_card.png"></img>
+                    </div>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="backbot" src="public/asset/back_card.png"></img>
+                    </div>
+                </div>
+                <!-- down line -->
+                <div class = eapdown>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="backbot" src="public/asset/back_card.png"></img>
+                    </div>
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <img class="backbot" src="public/asset/back_card.png"></img>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Après_board -->
+        <div class="apboard">
+            <div class="card" onclick="flip(event)">
+                <div class="backbot"></div>
+            </div>
+            <div class="card" onclick="flip(event)">
+                <div class="backbot"></div>
+            </div>
+            <div class="card" onclick="flip(event)">
+                <div class="backbot"></div>
+            </div>
+        </div>
+    </div>
 
 
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
+    <!-- un bouton generer
+    <button id="btnMTG" onclick="buttonClickGET()">Générer</button>
+    <p id="zone_carte"></p>
+    <div id="img_carte"></div>
+    -->
+</div>
+
+<!-- script javascript -->
+<!-- script src="public/js/script.js"></script -->
 <script>
 
     // Connexion à socket.io
@@ -36,6 +195,36 @@
     var pseudo = prompt('Quel est votre pseudo ?');
     socket.emit('nouveau_client', pseudo);
     document.title = pseudo + ' - ' + document.title;
+
+    var callBackGetSuccess = function(data){
+        var element = document.getElementById("hand");
+        element.innerHTML += '<div class="card" onclick="flip(event)"><img class="backbot" src="'+data.image_uris.small+'"/></div>';
+    }
+
+    function buttonClickGET(){
+        socket.emit('action', 'Je pioche');
+    }
+
+    socket.on('action', function(data) {
+
+        if(data.match("piocheadverse")){
+            var element = document.getElementById("handop");
+            element.innerHTML += '<div class="card" onclick="flip(event)"><img class="backbot" src="public/asset/back_card.png"/></div>';
+        }
+        else{
+            var url = "https://api.scryfall.com/cards/named?exact="+data;
+
+            $.get(url, callBackGetSuccess).done(function(){
+                //alert("second success")
+            })
+                .fail(function(){
+                    alert("error");
+                })
+                .always(function(){
+                    //alert("finished")
+                })
+        }
+    })
 
     // Quand on reçoit un message, on l'insère dans la page
     socket.on('message', function(data) {
@@ -63,4 +252,3 @@
 </script>
 </body>
 </html>
-
