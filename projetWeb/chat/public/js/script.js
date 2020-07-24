@@ -7,6 +7,8 @@ let redcard = 0;
 
 shuffle()*/
 
+
+
 var callBackGetSuccess = function(data){
     console.log("donnees api: ", data)
     var element = document.getElementById("hand");

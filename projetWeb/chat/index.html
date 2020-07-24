@@ -44,7 +44,10 @@
             <div class="manahandop">
                 <!-- Main de l'adversaire -->
                 <div id="handop"class="handop">
-
+                    <div class="card" onclick="flip(event)">
+                        <!-- image de la carte rouge -->
+                        <div class="backtempo"></div>
+                    </div>
                 </div>
                 <!-- Mana de l'adversaire -->
                 <div class="manaop">
@@ -198,7 +201,13 @@
 
     var callBackGetSuccess = function(data){
         var element = document.getElementById("hand");
-        element.innerHTML += '<div class="card" onclick="flip(event)"><img class="backbot" src="'+data.image_uris.small+'"/></div>';
+        element.innerHTML += '<div class="card" onmousedown="WhichClick(event)" ><p hidden>'+data.name+'</p><img class="backbot" src="'+data.image_uris.small+'"/></div>';
+    }
+
+    function WhichClick(event) {
+        alert("You presssed : "+ event.button);
+        //var element = document.getElementById("hand");
+        //element.innerHTML -= '<div class="card" onmousedown="WhichClick(event)" "><img class="backbot" src="'+data.image_uris.small+'"/></div>';
     }
 
     function buttonClickGET(){
